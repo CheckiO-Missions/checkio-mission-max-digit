@@ -1,19 +1,23 @@
 "use strict";
 
-function sumTwo(a, b) {
-    // sums two passed arguments
-
+function maxDigit(a) {
     // your code here
-    return 0;
+    return undefined;
 }
 
 var assert = require('assert');
+
 if (!global.is_checking) {
     console.log('Example:');
-    console.log(sumTwo(3, 2));
+    console.log(maxDigit(0));
 
-    // These "asserts" are used for self-checking and not for an auto-testing
-    assert.equal(sumTwo(3, 2), 5);
-    assert.equal(sumTwo(5, 7), 12);
+    // These "asserts" are used for self-checking
+    assert.equal(maxDigit(0), 0);
+    assert.equal(maxDigit(52), 5);
+    assert.equal(maxDigit(634), 6);
+    assert.equal(maxDigit(1), 1);
+    assert.equal(maxDigit(10000), 1);
+
     console.log("Coding complete? Click 'Check' to earn cool rewards!");
 }
+    

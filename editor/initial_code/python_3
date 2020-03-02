@@ -1,16 +1,16 @@
-def sum_two(a, b):
-    """
-        sums two passed arguments
-    """
+def max_digit(a):
     # your code here
     return None
 
 
 if __name__ == '__main__':
     print("Example:")
-    print(sum_two(3, 2))
-    
+    print(max_digit(0))
+
     # These "asserts" are used for self-checking and not for an auto-testing
-    assert sum_two(3, 2) == 5, "First"
-    assert sum_two(5, 7) == 12, "Second"
+    assert max_digit(0) == 0
+    assert max_digit(52) == 5
+    assert max_digit(634) == 6
+    assert max_digit(1) == 1
+    assert max_digit(10000) == 1
     print("Coding complete? Click 'Check' to earn cool rewards!")
