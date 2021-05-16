@@ -1,0 +1,39 @@
+<!-- Describe task in general -->
+
+<p>
+    Twoim zadaniem jest znalezienie największej cyfry w podanej liczbie.
+</p>
+
+<!-- Explain input and output values -->
+<p>
+    <strong>Wejście: </strong> Dodatni int.
+</p>
+
+<p>
+    <strong>Wyjście: </strong> Int (0-9). 
+</p>
+
+
+<!-- Give some usage examples -->
+<div class="for_info_only">
+    <p>
+        <strong>Przykład:</strong>
+    </p>
+
+{% if interpreter.slug == "js-node" %}
+<pre class="brush: javascript">maxDigit(0) == 0
+maxDigit(52) == 5
+maxDigit(634) == 6
+maxDigit(1) == 1
+maxDigit(10000) == 1
+</pre>
+{% else %}
+<pre class="brush: python">max_digit(0) == 0
+max_digit(52) == 5
+max_digit(634) == 6
+max_digit(1) == 1
+max_digit(10000) == 1
+</pre>
+{% endif %}
+</div>
+
