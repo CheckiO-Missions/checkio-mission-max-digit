@@ -34,7 +34,7 @@ TESTS = {
     "Extra": [
         {
             "input": [3053456],
-            "answer": 6,
+            "answer": 3,
         },
         {
             "input": [9999999],
