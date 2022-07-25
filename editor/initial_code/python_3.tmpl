@@ -1,0 +1,23 @@
+{% comment %}New initial code template{% endcomment %}
+{% block env %}{% endblock env %}
+
+{% block start %}
+def max_digit(a: int) -> int:
+    # your code here
+    return None
+{% endblock start %}
+
+{% block example %}
+print('Example:')
+print(max_digit(10))
+{% endblock %}
+
+{% block tests %}
+{% for t in tests %}
+assert {% block call %}max_digit({{t.input|p_args}})
+{% endblock %} == {% block result %}{{t.answer|p}}{% endblock %}{% endfor %}
+{% endblock %}
+
+{% block final %}
+print("The mission is done! Click 'Check Solution' to earn rewards!")
+{% endblock final %}
