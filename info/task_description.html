@@ -20,20 +20,5 @@
         <strong>Example:</strong>
     </p>
 
-{% if interpreter.slug == "js-node" %}
-<pre class="brush: javascript">maxDigit(0) == 0
-maxDigit(52) == 5
-maxDigit(634) == 6
-maxDigit(1) == 1
-maxDigit(10000) == 1
-</pre>
-{% else %}
-<pre class="brush: python">max_digit(0) == 0
-max_digit(52) == 5
-max_digit(634) == 6
-max_digit(1) == 1
-max_digit(10000) == 1
-</pre>
-{% endif %}
+<pre class="brush: {% if is_js %}javascript{% else %}python{% endif %}">{{init_code_tmpl}}</pre>
 </div>
-
