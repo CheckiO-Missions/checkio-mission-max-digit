@@ -6,18 +6,18 @@
 
 <!-- Explain input and output values -->
 <p>
-    <strong>Input: </strong> A positive int.
+    <strong>Input:</strong> A positive {% if is_js %}number{% else %}integer{% endif %}.
 </p>
 
 <p>
-    <strong>Output: </strong> An Int (0-9). 
+    <strong>Output:</strong> {% if is_js %}A number{% else %}An integer{% endif %} (0-9). 
 </p>
 
 
 <!-- Give some usage examples -->
 <div class="for_info_only">
     <p>
-        <strong>Example:</strong>
+        <strong>Examples:</strong>
     </p>
 
 <pre class="brush: {% if is_js %}javascript{% else %}python{% endif %}">{{init_code_tmpl}}</pre>

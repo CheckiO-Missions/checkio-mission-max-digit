@@ -1,0 +1,138 @@
+<body data-author="freeman_lex">
+<div class="question-answer">
+    <div class="question">
+        Я не маю уявлення, як розв'язати цю місію.
+    </div>
+    <div class="answer">
+        Загалом, ідея у тому, щоб "розбити" число на окремі цифри і потім обрати
+        найбільше із них.
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        З якого інструменту мені слід розпочати?
+    </div>
+    <div class="answer">
+        Використай вбудовану функцію <a target="_blank" href="https://www.w3schools.com/python/ref_func_str.asp">str()</a>,
+        щоб конвертувати вхідне число в рядок.
+        <br />
+        <br />
+        <pre class="brush: python">
+a = 12
+a = str(a)
+print(a)
+
+# output:
+# 12 виглядає так само, але тепер це рядок :-)
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Зроблено. Але не розумію, як продовжити.
+    </div>
+    <div class="answer">
+        Наступний крок, це використати вбудовану функцію <a target="_blank" href="https://www.w3schools.com/python/ref_func_map.asp">map()</a>,
+        яка застосовує визначену функцію до кожного елементу послідовності.
+        У цьому випадку, тобі потрібно конвертувати кожен символ створеного рядка назад
+        в ціле число.
+        <br />
+        <br />
+        <pre class="brush: python">
+a = map(int, str(a))        
+        </pre>
+        Результатом є об'єкт map. Якщо конвертувати його в список, ти побачиш:
+        <br />
+        <br />
+        <pre class="brush: python">
+print(list(a))
+
+# output:
+# [1, 2]
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Як обрати найбільший елемент з цього списку?
+    </div>
+    <div class="answer">
+        Використай вбудовану функцію <a target="_blank" href="https://www.w3schools.com/python/ref_func_max.asp">max()</a>,
+        щоб знайти найбільший елемент у послідовності. Ця функція може приймати об'єкт map object як аргумент.
+        Немає потреби в перетворенні в список.
+        <br />
+        <br />
+        <pre class="brush: python">
+a = max(map(int, str(a)))
+print(a)
+
+# output:
+# 2
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        То як має виглядати мій остаточний розв'язок?
+    </div>
+    <div class="answer">
+        Тобі лишилося обгорнути код в вираз функції і повернути результат функції 
+        max(). Ось код:
+        <br />
+        <br />
+        <pre class="brush: python">
+def max_digit(a: int) -> int:
+
+    return max(map(int, str(a)))        
+        </pre>
+        Ця функції проста і коротка, тож ти можеш використати lambda вираз (анонімну функцію),
+        щоб записувати такі функції більш компактно.
+        <br />
+        <br />
+        <pre class="brush: python">
+max_digit = lambda a: max(map(int, str(a)))        
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Покажи мені більше розв'язків!<br />
+        Адже я хочу стати справжнім Python Ніндзею!
+    </div>
+    <div class="answer">
+        Звісно, тримай!<br />
+        Цей розвязок використовує навіть менше функцій, але і є менш очевидним.
+        Коли ти застосовуєш max() до рядка без визначеного ключа сортування,
+        символи сортуються в лексикографічному порядку, де символи від "0" до "9"
+        відсортовані так само як цифри від 0 до 9. 
+        <br />
+        <br />
+        <pre class="brush: python">
+max_digit = lambda number: int(max(str(a)))
+        </pre>
+        Якщо у тебе лишилися сумніви, ось детальний покроковий розв'язок.
+        <br />
+        <br />
+        <pre class="brush: python">
+def max_digit(a: int) -> int:
+
+    current_max = 0
+    for num in str(a):
+        num = int(num)
+        if num > current_max:
+            current_max = num
+
+    return current_max
+        </pre>
+        Тисни "Best solutions" в меню місії і побачиш багато інших цікавих розв'язків!
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Дякую! Тепер я знаю і розумію більше! Все працює як слід!
+    </div>
+    <div class="answer">
+        Приємно це чути!
+    </div>
+</div>
+</body>
