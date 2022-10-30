@@ -1,0 +1,142 @@
+<body data-author="freeman_lex">
+<div class="question-answer">
+    <div class="question">
+        <i>I have no idea how to start solving this mission.</i>
+    </div>
+    <div class="answer">
+        <p>
+            💡 The general idea is to "break" number into separate digits and then choose the biggest among them. 
+        </p>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <i>Ok, what should I start from?</i>
+    </div>
+    <div class="answer">
+        <p>
+            If to be more specific, you should convert number into string, make an Array of separate characters, convert each character back into number and then take the biggest.
+        </p>
+        <p>
+            Convert the number into string with <a target="_blank" href="https://www.w3schools.com/jsref/jsref_string.asp">String()</a> method.
+        </p>
+        <pre class="brush: javascript">
+String(value)
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <i>
+            How to make an Array of separate characters from this string?
+        </i>
+    </div>
+    <div class="answer">
+        <p>
+            Use the <a target="_blank" href="https://www.w3schools.com/jsref/jsref_split.asp">string.split()</a> method, where first argument is empty string.
+        </p>
+        <pre class="brush: javascript">
+String(value).split("")
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <i>
+            How to convert each element (type String) of the Array back to type Number?
+        </i>
+    </div>
+    <div class="answer">
+        <p>
+            Use <a target="_blank" href="https://www.w3schools.com/jsref/jsref_map.asp">array.map()</a> method with argument of function, which you need to call for every element. In this case, it's <b class="code">Number</b> method.
+        </p>
+        <pre class="brush: javascript">
+String(value).split("").map(Number)
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <i>
+            Ok, what to do next?
+        </i>
+    </div>
+    <div class="answer">
+        <p>
+            To find the maximum among these digits you need to use them as arguments of <a target="_blank" href="https://www.w3schools.com/jsref/jsref_max.asp">Math.max()</a> method, like this.
+        </p>
+        <pre class="brush: javascript">
+Math.max(   String(value).split("").map(Number))
+        </pre>
+        <p>
+            But there is a trick here. These digits are packed inside Array now. But you need to call Math.max() method with comma separated numbers as arguments. So unpack Array with <a target="_blank" href="https://www.w3schools.com/react/react_es6_spread.asp">spread</a> operator.
+        </p>
+        <pre class="brush: javascript">
+Math.max(...String(value).split("").map(Number));
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <i>So, how my final solution should look like?</i>
+    </div>
+    <div class="answer">
+        <p>
+            You just need to wrap your code into function expression and return the expression you've built.
+        </p>
+        <p>Here is the whole solution:</p>
+        <pre class="brush: javascript">
+function maxDigit(value: number): number {
+
+    return Math.max(...String(value).split("").map(Number));
+    }
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <i>Show me more solutions!<br />
+        'Cause I wanna be a real 🥇 Javascript Hero!</i>
+    </div>
+    <div class="answer">
+        <p>Sure, grab it!</p>
+        <p>
+            This solution is shorter. As you may see, it sorts characters (type <b class="code">string</b>), not numbers. Lexicographic order of one-digit numbers as strings ("0"..."9") is the same as mathematical order of them as numbers (0...9).
+        </p>
+        <p>
+            Note, that in the first variant result of type <b class="code">string</b> is returned. It's because Javascript considers, that <b class="code">5 == "5"</b>, for example. In the second variant you convert string to number with <b class="code">+</b>.
+        </p>
+        <pre class="brush: javascript">
+function maxDigit(value: number): number {
+
+    return Math.max(...value.toString());
+    // or
+    return +Math.max(...value.toString());
+}
+        </pre>
+        <p>
+            Here is step-by-step solution without converting to string. You get separated digits by dividing number by 10 and taking the reminder.
+        </p>
+        <pre class="brush: javascript">
+function maxDigit(value: number): number {
+
+    let res = 0;
+    while (value >= 1) {
+        res = Math.max(res, value%10);
+        value = Math.floor(value/10);
+    }
+    return res;
+}
+        </pre>
+        <p><b>Click "Best solutions" at mission menu and see a lot of other interesting solutions!</b></p>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <i>Thanks! I know and understand more now! Everything works fine!</i>
+    </div>
+    <div class="answer">
+        👍 Glad to hear it!
+    </div>
+</div>
+</body>
