@@ -1,95 +1,100 @@
 <body data-author="freeman_lex">
 <div class="question-answer">
     <div class="question">
-        I have no idea how to start solving this mission.
+        <i>I have no idea how to start solving this mission.</i>
     </div>
     <div class="answer">
-        The general idea is to "break" number into separate digits and then choose
-        the biggest among them.
+        <p>
+           💡 The general idea is to "break" number into separate digits and then choose the biggest among them. 
+        </p>
     </div>
 </div>
 <div class="question-answer">
     <div class="question">
-        What instrument should I start from?
+        <i>What instrument should I start from?</i>
     </div>
     <div class="answer">
-        Use build-in <a target="_blank" href="https://www.w3schools.com/python/ref_func_str.asp">str()</a>
-        function to convert input number into string.
-        <br />
-        <br />
+        <p>
+            Use built-in <a target="_blank" href="https://www.w3schools.com/python/ref_func_str.asp">str()</a> function to convert input number into string.
+        </p>
         <pre class="brush: python">
 a = 12
 a = str(a)
 print(a)
-
-# output:
-# 12 
         </pre>
-        12 looks the same, but it's string now :-)
+        <div class="output">
+            <p>Output:</p>
+            <pre>
+12        
+            </pre>
+        </div>
+        <p>
+            <b class="code">12</b> looks the same, but it's string now :-)
+        </p>
     </div>
 </div>
 <div class="question-answer">
     <div class="question">
-        Done. But don't know how to proceed.
+        <i>Done. But don't know how to proceed.</i>
     </div>
     <div class="answer">
-        The next step is to use build-in <a target="_blank" href="https://www.w3schools.com/python/ref_func_map.asp">map()</a>
-        function, which implements specific function to each element of sequence.
-        In this case, you need to convert each character of created string back into
-        integer.
-        <br />
-        <br />
+        <p>
+            The next step is to use built-in <a target="_blank" href="https://www.w3schools.com/python/ref_func_map.asp">map()</a> function, which implements specific function to each element of sequence. In this case, you need to convert each character of created string back into integer.
+        </p>
         <pre class="brush: python">
 a = map(int, str(a))        
         </pre>
-        The result is map object. If you convert it into list, you see:
-        <br />
-        <br />
+        <p>
+            The result is map object. If you convert it into list, you see:
+        </p>
         <pre class="brush: python">
 print(list(a))
-
-# output:
-# [1, 2]
         </pre>
+        <div class="output">
+            <p>Output:</p>
+            <pre>
+[1, 2]        
+            </pre>
+        </div>
     </div>
 </div>
 <div class="question-answer">
     <div class="question">
-        How to choose maximum element in the list?
+        <i>How to choose maximum element in the list?</i>
     </div>
     <div class="answer">
-        Use build-in <a target="_blank" href="https://www.w3schools.com/python/ref_func_max.asp">max()</a> function
-        to find maximum element in sequence. This function can take map object as
-        its argument. No need to convert into list.
-        <br />
-        <br />
+        <p>
+            Use built-in <a target="_blank" href="https://www.w3schools.com/python/ref_func_max.asp">max()</a> function to find maximum element in sequence. This function can take map object as its argument. No need to convert into list.
+        </p>
         <pre class="brush: python">
 a = max(map(int, str(a)))
 print(a)
-
-# output:
-# 2
         </pre>
+        <div class="output">
+            <p>Output:</p>
+            <pre>
+2
+            </pre>
+        </div>
     </div>
 </div>
 <div class="question-answer">
     <div class="question">
-        So, how my final solution should look like?
+        <i>So, how my final solution should look like?</i>
     </div>
     <div class="answer">
-        You just need to wrap code into function expression and return result of
-        max() function. Here is the code:
-        <br />
-        <br />
+        <p>
+            You just need to wrap code into function expression and return result of <b class="code">max()</b> function.
+        </p>
+        <p> Here is the whole code:</p>
         <pre class="brush: python">
 def max_digit(a: int) -> int:
 
     return max(map(int, str(a)))        
         </pre>
-        This solution is simple and short so you may use lambda expression (anonymous function)
-        to write such functions more compact.
-        <br />
-        <br />
+        <p>
+            This solution is simple and short so you may use lambda expression (anonymous function) to write such functions more compact.
+        </p>
         <pre class="brush: python">
 max_digit = lambda a: max(map(int, str(a)))        
         </pre>
@@ -97,22 +102,20 @@ max_digit = lambda a: max(map(int, str(a)))
 </div>
 <div class="question-answer">
     <div class="question">
-        Show me more solutions!<br />
-        'Cause I wanna be a real Python Ninnjaa!
+        <i>Show me more solutions!<br />
+        'Cause I wanna be a real 🥇 Python Ninnjaa!</i>
     </div>
     <div class="answer">
-        Sure, grab it!<br />
-        This solution uses even less functions, but is less obvious. When you 
-        implement max() to string without specific sorting key, characters are sorted with lexicographical order,
-        where characters from "0" to "9" are sorted the same way as digits from 0 to 9. 
-        <br />
-        <br />
+        <p>Sure, grab it!</p>
+        <p>
+            This solution uses even less functions, but is less obvious. When you implement <b class="code">max()</b> to string without specific sorting key, characters are sorted with lexicographical order, where characters from "0" to "9" are sorted the same way as digits from 0 to 9. 
+        </p>
         <pre class="brush: python">
 max_digit = lambda a: int(max(str(a)))
         </pre>
-        If you have any doubts, here is detailed step-by-step solution.
-        <br />
-        <br />
+        <p>
+            If you have any doubts, here is detailed step-by-step solution.
+        </p>
         <pre class="brush: python">
 def max_digit(a: int) -> int:
 
@@ -124,16 +127,16 @@ def max_digit(a: int) -> int:
 
     return current_max
         </pre>
-        Click "Best solutions" at mission menu and see a lot of other
-        interesting solutions!
+        <p><b>Click "Best solutions" at mission menu and see a lot of other
+        interesting solutions!</b></p>
     </div>
 </div>
 <div class="question-answer">
     <div class="question">
-        Thanks! I know and understand more now! Everything works fine!
+        <i>Thanks! I know and understand more now! Everything works fine!</i>
     </div>
     <div class="answer">
-        Glad to hear it!
+        👍 Glad to hear it!
     </div>
 </div>
 </body>
