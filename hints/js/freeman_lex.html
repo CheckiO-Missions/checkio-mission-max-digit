@@ -85,12 +85,14 @@ Math.max(...String(value).split("").map(Number));
             You just need to wrap your code into function expression and return the expression you've built.
         </p>
         <p>Here is the whole solution:</p>
+        <div class="spoiler">
         <pre class="brush: javascript">
 function maxDigit(value: number): number {
 
     return Math.max(...String(value).split("").map(Number));
     }
         </pre>
+        </div>
     </div>
 </div>
 <div class="question-answer">
@@ -106,6 +108,7 @@ function maxDigit(value: number): number {
         <p>
             Note, that in the first variant result of type <b class="code">string</b> is returned. It's because Javascript considers, that <b class="code">5 == "5"</b>, for example. In the second variant you convert string to number with <b class="code">+</b>.
         </p>
+        <div class="spoiler">
         <pre class="brush: javascript">
 function maxDigit(value: number): number {
 
@@ -114,9 +117,11 @@ function maxDigit(value: number): number {
     return +Math.max(...value.toString());
 }
         </pre>
+        </div>
         <p>
             Here is step-by-step solution without converting to string. You get separated digits by dividing number by 10 and taking the reminder.
         </p>
+        <div class="spoiler">
         <pre class="brush: javascript">
 function maxDigit(value: number): number {
 
@@ -128,6 +133,7 @@ function maxDigit(value: number): number {
     return res;
 }
         </pre>
+        </div>
         <p><b>Click "Best solutions" at mission menu and see a lot of other interesting solutions!</b></p>
     </div>
 </div>
