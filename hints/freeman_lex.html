@@ -87,17 +87,21 @@ print(a)
             You just need to wrap code into function expression and return result of <b class="code">max()</b> function.
         </p>
         <p> Here is the whole code:</p>
+        <div class="spoiler">
         <pre class="brush: python">
 def max_digit(a: int) -> int:
 
     return max(map(int, str(a)))        
         </pre>
+        </div>
         <p>
             This solution is simple and short so you may use lambda expression (anonymous function) to write such functions more compact.
         </p>
+        <div class="spoiler">
         <pre class="brush: python">
 max_digit = lambda a: max(map(int, str(a)))        
         </pre>
+        </div>
     </div>
 </div>
 <div class="question-answer">
@@ -110,12 +114,15 @@ max_digit = lambda a: max(map(int, str(a)))
         <p>
             This solution uses even less functions, but is less obvious. When you implement <b class="code">max()</b> to string without specific sorting key, characters are sorted with lexicographical order, where characters from "0" to "9" are sorted the same way as digits from 0 to 9. 
         </p>
+        <div class="spoiler">
         <pre class="brush: python">
 max_digit = lambda a: int(max(str(a)))
         </pre>
+        </div>
         <p>
             If you have any doubts, here is detailed step-by-step solution.
         </p>
+        <div class="spoiler">
         <pre class="brush: python">
 def max_digit(a: int) -> int:
 
@@ -127,6 +134,7 @@ def max_digit(a: int) -> int:
 
     return current_max
         </pre>
+        </div>
         <p><b>Click "Best solutions" at mission menu and see a lot of other
         interesting solutions!</b></p>
     </div>
