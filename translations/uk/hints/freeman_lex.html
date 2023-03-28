@@ -86,17 +86,21 @@ print(a)
         <b class="code">max()</b>.
         </p>
         <p>Ось повний код:</p>
+        <div class="spoiler">
         <pre class="brush: python">
 def max_digit(a: int) -> int:
 
     return max(map(int, str(a)))        
         </pre>
+        </div>
         <p>
             Цей розв'язок простий і короткий, тож ти можеш використати lambda вираз (анонімну функцію), щоб записувати такі функції більш компактно.
         </p>
+        <div class="spoiler">
         <pre class="brush: python">
 max_digit = lambda a: max(map(int, str(a)))        
         </pre>
+        </div>
     </div>
 </div>
 <div class="question-answer">
@@ -109,12 +113,15 @@ max_digit = lambda a: max(map(int, str(a)))
         <p>
             Цей розв'язок використовує навіть менше функцій, але і є менш очевидним. Коли ти застосовуєш <b class="code">max()</b> до рядка без визначеного ключа сортування, символи сортуються в лексикографічному порядку, де символи від "0" до "9" відсортовані так само як цифри від 0 до 9. 
         </p>
+        <div class="spoiler">
         <pre class="brush: python">
 max_digit = lambda number: int(max(str(a)))
         </pre>
+        </div>
         <p>
             Якщо у тебе лишилися сумніви, ось детальний покроковий розв'язок.
         </p>
+        <div class="spoiler">
         <pre class="brush: python">
 def max_digit(a: int) -> int:
 
@@ -126,6 +133,7 @@ def max_digit(a: int) -> int:
 
     return current_max
         </pre>
+        </div>
         <p><b>Тисни "Best solutions" в меню місії і побачиш багато інших цікавих розв'язків!</b></p>
     </div>
 </div>
