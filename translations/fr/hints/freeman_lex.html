@@ -1,0 +1,150 @@
+<body data-author="freeman_lex">
+<div class="question-answer">
+    <div class="question">
+        <p>Je n'ai aucune idée de la manière de commencer à résoudre cette mission.</p>
+    </div>
+    <div class="answer">
+        <p>
+           💡 L'idée générale est de "casser" le nombre en chiffres distincts et de choisir le plus grand d'entre eux. 
+        </p>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>De quel instrument dois-je partir?</p>
+    </div>
+    <div class="answer">
+        <p>
+            Utilisez la fonction intégrée <a target="_blank" href="https://www.w3schools.com/python/ref_func_str.asp">str()</a> pour convertir le nombre saisi en chaîne de caractères.
+        </p>
+        <pre class="brush: python">
+a = 12
+a = str(a)
+print(a)
+        </pre>
+        <div class="output">
+            <p>Résultat:</p>
+            <pre>
+12        
+            </pre>
+        </div>
+        <p>
+           <b class="code">12</b> est identique, mais c'est une chaîne de caractères:-)
+        </p>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>C'est fait. Mais je ne sais pas comment procéder.</p>
+    </div>
+    <div class="answer">
+        <p>
+            L'étape suivante consiste à utiliser la fonction intégrée <a target="_blank" href="https://www.w3schools.com/python/ref_func_map.asp">map()</a>, qui met en œuvre une fonction spécifique pour chaque élément de la séquence. Dans ce cas, vous devez reconvertir chaque caractère de la chaîne créée en entier.
+        </p>
+        <pre class="brush: python">
+a = map(int, str(a))        
+        </pre>
+        <p>
+            Le résultat est un objet map. Si vous le convertissez en liste, vous obtenez le résultat suivant:
+        </p>
+        <pre class="brush: python">
+print(list(a))
+        </pre>
+        <div class="output">
+            <p>Sortie:</p>
+            <pre>
+[1, 2]        
+            </pre>
+        </div>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>Comment choisir l'élément maximum dans la liste?</p>
+    </div>
+    <div class="answer">
+        <p>
+            Utilisez la fonction intégrée <a target="_blank" href="https://www.w3schools.com/python/ref_func_max.asp">max()</a> pour trouver l'élément maximal dans la séquence. Cette fonction peut prendre l'objet map comme argument. Il n'est pas nécessaire de la convertir en liste.
+        </p>
+        <pre class="brush: python">
+a = max(map(int, str(a)))
+print(a)
+        </pre>
+        <div class="output">
+            <p>Résultat:</p>
+            <pre>
+2
+            </pre>
+        </div>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>À quoi devrait ressembler ma solution finale?</p>
+    </div>
+    <div class="answer">
+        <p>
+            Il vous suffit de transformer le code en expression de fonction et de renvoyer le résultat de la fonction <b class="code">max()</b>.
+        </p>
+        <p> Voici le code complet:</p>
+        <div class="spoiler">
+        <pre class="brush: python">
+def max_digit(a: int) -> int:
+
+    return max(map(int, str(a)))        
+        </pre>
+        </div>
+        <p>
+            Cette solution étant simple et courte, vous pouvez utiliser l'expression lambda (fonction anonyme) pour écrire de telles fonctions de manière plus compacte.
+        </p>
+        <div class="spoiler">
+        <pre class="brush: python">
+max_digit = lambda a: max(map(int, str(a)))        
+        </pre>
+        </div>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>Montrez-moi d'autres solutions!<br />
+        parce que je veux être une vraie 🥇 Python Ninnjaa!</p>
+    </div>
+    <div class="answer">
+        <p>Bien sûr, prenez-le!</p>
+        <p>
+            Cette solution utilise encore moins de fonctions, mais est moins évidente. Lorsque vous implémentez <b class="code">max()</b> to string sans clé de tri spécifique, les caractères sont triés par ordre lexicographique, où les caractères de "0" à "9" sont triés de la même manière que les chiffres de 0 à 9. 
+        </p>
+        <div class="spoiler">
+        <pre class="brush: python">
+max_digit = lambda a: int(max(str(a)))
+        </pre>
+        </div>
+        <p>
+            Si vous avez des doutes, voici une solution détaillée étape par étape.
+        </p>
+        <div class="spoiler">
+        <pre class="brush: python">
+def max_digit(a: int) -> int:
+
+    current_max = 0
+    for num in str(a):
+        num = int(num)
+        if num > current_max:
+            current_max = num
+
+    return current_max
+        </pre>
+        </div>
+        <p><b>Cliquez sur "Meilleures solutions" dans le menu de la mission et découvrez de nombreuses autres solutions intéressantes!
+        solutions intéressantes!</b></p>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>Merci beaucoup! Je comprends mieux maintenant! Tout fonctionne bien!</p>
+    </div>
+    <div class="answer">
+        👍 Heureux de l'apprendre!
+    </div>
+</div>
+</body>
