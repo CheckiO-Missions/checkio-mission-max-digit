@@ -1,0 +1,148 @@
+<body data-author="freeman_lex">
+<div class="question-answer">
+    <div class="question">
+        <p>Je n'ai aucune idée de la manière de commencer à résoudre cette mission.</p>
+    </div>
+    <div class="answer">
+        <p>
+            💡 L'idée générale est de "casser" le nombre en chiffres distincts et de choisir le plus grand d'entre eux. 
+        </p>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>Ok, par quoi dois-je commencer?</p>
+    </div>
+    <div class="answer">
+        <p>
+            Pour être plus précis, vous devez convertir un nombre en chaîne de caractères, créer un tableau de caractères distincts, reconvertir chaque caractère en nombre et choisir le plus grand.
+        </p>
+        <p>
+            Convertissez le nombre en chaîne de caractères avec la méthode <a target="_blank" href="https://www.w3schools.com/jsref/jsref_string.asp">String()</a>.
+        </p>
+        <pre class="brush: javascript">
+String(value)
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>
+            Comment créer un tableau de caractères distincts à partir de cette chaîne?
+        </p>
+    </div>
+    <div class="answer">
+        <p>
+            Utilisez la méthode <a target="_blank" href="https://www.w3schools.com/jsref/jsref_split.asp">string.split()</a>, où le premier argument est une chaîne vide.
+        </p>
+        <pre class="brush: javascript">
+String(value).split("")
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>
+            Comment reconvertir chaque élément (de type chaîne) du tableau en nombre?
+        </p>
+    </div>
+    <div class="answer">
+        <p>
+            Utilisez la méthode <a target="_blank" href="https://www.w3schools.com/jsref/jsref_map.asp">array.map()</a> avec l'argument de la fonction que vous devez appeler pour chaque élément. Dans ce cas, il s'agit de la méthode <b class="code">Number</b>.
+        </p>
+        <pre class="brush: javascript">
+String(value).split("").map(Number)
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>
+            Ok, que faire ensuite?
+        </p>
+    </div>
+    <div class="answer">
+        <p>
+            Pour trouver le maximum parmi ces chiffres, vous devez les utiliser comme arguments de la méthode <a target="_blank" href="https://www.w3schools.com/jsref/jsref_max.asp">Math.max()</a>, comme ceci.
+        </p>
+        <pre class="brush: javascript">
+Math.max(   String(value).split("").map(Number))
+        </pre>
+        <p>
+            Mais il y a une astuce ici. Ces chiffres sont maintenant placés dans un tableau. Mais vous devez appeler la méthode Math.max() avec des nombres séparés par des virgules comme arguments. Décompressez donc le tableau à l'aide de l'opérateur <a target="_blank" href="https://www.w3schools.com/react/react_es6_spread.asp">spread</a>.
+        </p>
+        <pre class="brush: javascript">
+Math.max(...String(value).split("").map(Number));
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>Alors, à quoi devrait ressembler ma solution finale?</p>
+    </div>
+    <div class="answer">
+        <p>
+            Il vous suffit d'envelopper votre code dans une expression de fonction et de renvoyer l'expression que vous avez construite.
+        </p>
+        <p>Voici la solution complète:</p>
+        <div class="spoiler">
+        <pre class="brush: javascript">
+function maxDigit(value: number): number {
+
+    return Math.max(...String(value).split("").map(Number));
+    }
+        </pre>
+        </div>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>Montrez-moi d'autres solutions!<br />
+        parce que je veux être un vrai 🥇 Javascript Hero!</p>
+    </div>
+    <div class="answer">
+        <p>Bien sûr, prenez-le!</p>
+        <p>
+            Cette solution est plus courte. Comme vous pouvez le constater, elle trie les caractères (type <b class="code">string</b>), pas les nombres. L'ordre lexicographique des nombres à un chiffre en tant que chaînes ("0"... "9") est le même que l'ordre mathématique des nombres en tant que nombres (0...9).
+        </p>
+        <p>
+            Notez que dans la première variante, le résultat est de type <b class="code">chaîne de caractères</b>. C'est parce que Javascript considère que <b class="code">5 == "5"</b>, par exemple. Dans la deuxième variante, vous convertissez une chaîne de caractères en un nombre à l'aide de <b class="code">+</b>.
+        </p>
+        <div class="spoiler">
+        <pre class="brush: javascript">
+function maxDigit(value: number): number {
+
+    return Math.max(...value.toString());
+    // or
+    return +Math.max(...value.toString());
+}
+        </pre>
+        </div>
+        <p>
+            Voici la solution étape par étape sans conversion en chaîne. Vous obtenez des chiffres séparés en divisant le nombre par 10 et en prenant le rappel.
+        </p>
+        <div class="spoiler">
+        <pre class="brush: javascript">
+function maxDigit(value: number): number {
+
+    let res = 0;
+    while (value >= 1) {
+        res = Math.max(res, value%10);
+        value = Math.floor(value/10);
+    }
+    return res;
+}
+        </pre>
+        </div>
+        <p><b>Cliquez sur "Meilleures solutions" dans le menu de la mission et découvrez de nombreuses autres solutions intéressantes!</b></p>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>Merci beaucoup! Je comprends mieux maintenant! Tout fonctionne bien!</p>
+    </div>
+    <div class="answer">
+        👍 Heureux de l'apprendre!
+    </div>
+</div>
+</body>
