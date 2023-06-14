@@ -1,0 +1,149 @@
+<body data-author="freeman_lex">
+<div class="question-answer">
+    <div class="question">
+        <p>Nie mam pojęcia, jak zacząć rozwiązywać tę misję.</p>
+    </div>
+    <div class="answer">
+        <p>
+           ogólny pomysł polega na "rozbiciu" liczby na osobne cyfry, a następnie wybraniu największej z nich. 
+        </p>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>Od jakiego instrumentu powinienem zacząć?</p>
+    </div>
+    <div class="answer">
+        <p>
+            Proszę użyć wbudowanej funkcji <a target="_blank" href="https://www.w3schools.com/python/ref_func_str.asp">str()</a>, aby przekonwertować liczbę wejściową na ciąg znaków.
+        </p>
+        <pre class="brush: python">
+a = 12
+a = str(a)
+print(a)
+        </pre>
+        <div class="output">
+            <p>Dane wyjściowe:</p>
+            <pre>
+12        
+            </pre>
+        </div>
+        <p>
+            <b class="code">12</b> wygląda tak samo, ale jest teraz ciągiem znaków:-)
+        </p>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>Gotowe. Ale nie wiem, jak kontynuować.</p>
+    </div>
+    <div class="answer">
+        <p>
+            Następnym krokiem jest użycie wbudowanej funkcji <a target="_blank" href="https://www.w3schools.com/python/ref_func_map.asp">map()</a>, która implementuje określoną funkcję do każdego elementu sekwencji. W tym przypadku należy przekonwertować każdy znak utworzonego ciągu z powrotem na liczbę całkowitą.
+        </p>
+        <pre class="brush: python">
+a = map(int, str(a))        
+        </pre>
+        <p>
+            Wynikiem jest obiekt mapy. Jeśli przekonwertuje go Pan na listę, zobaczy Pan:
+        </p>
+        <pre class="brush: python">
+print(list(a))
+        </pre>
+        <div class="output">
+            <p>Wynik:</p>
+            <pre>
+[1, 2]        
+            </pre>
+        </div>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>Jak wybrać maksymalny element na liście?</p>
+    </div>
+    <div class="answer">
+        <p>
+            Proszę użyć wbudowanej funkcji <a target="_blank" href="https://www.w3schools.com/python/ref_func_max.asp">max()</a>, aby znaleźć maksymalny element w sekwencji. Funkcja ta może przyjąć jako argument obiekt mapy. Nie trzeba konwertować na listę.
+        </p>
+        <pre class="brush: python">
+a = max(map(int, str(a)))
+print(a)
+        </pre>
+        <div class="output">
+            <p>Wynik:</p>
+            <pre>
+2
+            </pre>
+        </div>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>Jak więc powinno wyglądać moje ostateczne rozwiązanie?</p>
+    </div>
+    <div class="answer">
+        <p>
+            Wystarczy zawinąć kod w wyrażenie funkcji i zwrócić wynik funkcji <b class="code">max()</b>.
+        </p>
+        <p> Oto cały kod:</p>
+        <div class="spoiler">
+        <pre class="brush: python">
+def max_digit(a: int) -> int:
+
+    return max(map(int, str(a)))        
+        </pre>
+        </div>
+        <p>
+            To rozwiązanie jest proste i krótkie, więc można użyć wyrażenia lambda (funkcji anonimowej), aby napisać takie funkcje bardziej kompaktowo.
+        </p>
+        <div class="spoiler">
+        <pre class="brush: python">
+max_digit = lambda a: max(map(int, str(a)))        
+        </pre>
+        </div>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>Proszę pokazać mi więcej rozwiązań!<br />
+        bo chcę być prawdziwym 🥇 Python Ninnjaa!</p>
+    </div>
+    <div class="answer">
+        <p>Jasne, proszę łapać!</p>
+        <p>
+            To rozwiązanie wykorzystuje jeszcze mniej funkcji, ale jest mniej oczywiste. Kiedy zaimplementują Państwo <b class="code">max()</b> to string bez określonego klucza sortowania, znaki są sortowane w porządku leksykograficznym, gdzie znaki od "0" do "9" są sortowane tak samo jak cyfry od 0 do 9. 
+        </p>
+        <div class="spoiler">
+        <pre class="brush: python">
+max_digit = lambda a: int(max(str(a)))
+        </pre>
+        </div>
+        <p>
+            Jeśli mają Państwo jakiekolwiek wątpliwości, poniżej znajduje się szczegółowe rozwiązanie krok po kroku.
+        </p>
+        <div class="spoiler">
+        <pre class="brush: python">
+def max_digit(a: int) -> int:
+
+    current_max = 0
+    for num in str(a):
+        num = int(num)
+        if num> current_max:
+            current_max = num
+
+    return current_max
+        </pre>
+        </div>
+        <p>Proszę kliknąć <b>Best Solutions</b> w menu misji i zobaczyć wiele innych ciekawych rozwiązań!</p>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>Dzięki! Teraz wiem i rozumiem więcej! Wszystko działa jak należy!</p>
+    </div>
+    <div class="answer">
+        miło mi to słyszeć!
+    </div>
+</div>
+</body>
