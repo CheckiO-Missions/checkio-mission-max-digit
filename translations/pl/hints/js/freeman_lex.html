@@ -1,0 +1,148 @@
+<body data-author="freeman_lex">
+<div class="question-answer">
+    <div class="question">
+        <p>Nie mam pojęcia, jak zacząć rozwiązywać tę misję.</p>
+    </div>
+    <div class="answer">
+        <p>
+            ogólna idea polega na "rozbiciu" liczby na poszczególne cyfry, a następnie wybraniu największej z nich. 
+        </p>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>Ok, od czego powinienem zacząć?</p>
+    </div>
+    <div class="answer">
+        <p>
+            Mówiąc dokładniej, powinien Pan przekonwertować liczbę na ciąg znaków, utworzyć tablicę oddzielnych znaków, przekonwertować każdy znak z powrotem na liczbę, a następnie wybrać największy.
+        </p>
+        <p>
+            Proszę przekonwertować liczbę na ciąg znaków za pomocą metody <a target="_blank" href="https://www.w3schools.com/jsref/jsref_string.asp">String()</a>.
+        </p>
+        <pre class="brush: javascript">
+String(value)
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>
+            Jak utworzyć tablicę oddzielnych znaków z tego ciągu?
+        </p>
+    </div>
+    <div class="answer">
+        <p>
+            Proszę użyć metody <a target="_blank" href="https://www.w3schools.com/jsref/jsref_split.asp">string.split()</a>, gdzie pierwszym argumentem jest pusty ciąg znaków.
+        </p>
+        <pre class="brush: javascript">
+String(value).split("")
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>
+            Jak przekonwertować każdy element (typu String) tablicy z powrotem na typ Number?
+        </p>
+    </div>
+    <div class="answer">
+        <p>
+            Proszę użyć metody <a target="_blank" href="https://www.w3schools.com/jsref/jsref_map.asp">array.map()</a> z argumentem funkcji, którą należy wywołać dla każdego elementu. W tym przypadku jest to metoda <b class="code">Number</b>.
+        </p>
+        <pre class="brush: javascript">
+String(value).split("").map(Number)
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>
+            Ok, co robić dalej?
+        </p>
+    </div>
+    <div class="answer">
+        <p>
+            Aby znaleźć maksimum wśród tych cyfr, należy użyć ich jako argumentów metody <a target="_blank" href="https://www.w3schools.com/jsref/jsref_max.asp">Math.max()</a>, jak poniżej.
+        </p>
+        <pre class="brush: javascript">
+Math.max(   String(value).split("").map(Number))
+        </pre>
+        <p>
+            Ale jest tu pewna sztuczka. Te cyfry są teraz spakowane wewnątrz tablicy. Należy jednak wywołać metodę Math.max() z liczbami oddzielonymi przecinkami jako argumentami. Proszę więc rozpakować tablicę za pomocą operatora <a target="_blank" href="https://www.w3schools.com/react/react_es6_spread.asp">spread</a>.
+        </p>
+        <pre class="brush: javascript">
+Math.max(...String(value).split("").map(Number));
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>Jak powinno wyglądać moje ostateczne rozwiązanie?</p>
+    </div>
+    <div class="answer">
+        <p>
+            Wystarczy zawinąć kod w wyrażenie funkcji i zwrócić zbudowane wyrażenie.
+        </p>
+        <p>Oto całe rozwiązanie:</p>
+        <div class="spoiler">
+        <pre class="brush: javascript">
+function maxDigit(value: number): number {
+
+    return Math.max(...String(value).split("").map(Number));
+    }
+        </pre>
+        </div>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>Proszę pokazać mi więcej rozwiązań!<br />
+        bo chcę być prawdziwym 🥇 bohaterem Javascriptu!</p>
+    </div>
+    <div class="answer">
+        <p>Jasne, proszę pobrać!</p>
+        <p>
+            To rozwiązanie jest krótsze. Jak widać, sortuje ono znaki (typu <b class="code">string</b>), a nie liczby. Kolejność leksykograficzna jednocyfrowych liczb jako ciągów ("0"... "9") jest taka sama jak matematyczna kolejność ich jako liczb (0...9).
+        </p>
+        <p>
+            Proszę zauważyć, że w pierwszym wariancie zwracany jest wynik typu <b class="code">string</b>. Dzieje się tak dlatego, że Javascript bierze pod uwagę, że <b class="code">5 == "5"</b>, na przykład. W drugim wariancie konwertują Państwo ciąg znaków na liczbę za pomocą <b class="code">+</b>.
+        </p>
+        <div class="spoiler">
+        <pre class="brush: javascript">
+function maxDigit(value: number): number {
+
+    return Math.max(...value.toString());
+    // or
+    return +Math.max(...value.toString());
+}
+        </pre>
+        </div>
+        <p>
+            Oto rozwiązanie krok po kroku bez konwersji na ciąg znaków. Oddzielone cyfry uzyskuje się dzieląc liczbę przez 10 i pobierając resztę.
+        </p>
+        <div class="spoiler">
+        <pre class="brush: javascript">
+function maxDigit(value: number): number {
+
+    let res = 0;
+    while (value>= 1) {
+        res = Math.max(res, value%10);
+        value = Math.floor(value/10);
+    }
+    return res;
+}
+        </pre>
+        </div>
+        <p>Proszę kliknąć <b>Best Solutions</b> w menu misji i zobaczyć wiele innych ciekawych rozwiązań!</p>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>Dzięki! Teraz wiem i rozumiem więcej! Wszystko działa jak należy!</p>
+    </div>
+    <div class="answer">
+        miło mi to słyszeć!
+    </div>
+</div>
+</body>
