@@ -1,23 +1,23 @@
 <!-- Describe task in general -->
 
 <p>
-    Twoim zadaniem jest znalezienie największej cyfry w podanej liczbie.
+    Ma Pan(i) liczbę i musi Pan(i) określić, która cyfra w tej liczbie jest największa.
 </p>
 
 <!-- Explain input and output values -->
 <p>
-    <strong>Wejście:</strong> Dodatni {% if is_js %}number{% else %}integer{% endif %}.
+   <strong>Dane wejściowe:</strong> Dodatnia liczba całkowita <span>{% if is_js %}(number){% else %}(int){% endif %}</span>.
 </p>
 
 <p>
-    <strong>Wyjście:</strong> {% if is_js %}Number{% else %}Integer{% endif %} (0-9). 
+   <strong>Wyjście:</strong> Liczba całkowita 0-9 <span>{% if is_js %}(number){% else %}(int){% endif %}</span>. 
 </p>
 
 
 <!-- Give some usage examples -->
 <div class="for_info_only">
     <p>
-        <strong>Przykład:</strong>
+        <strong>Przykłady:</strong>
     </p>
 
 <pre class="brush: {% if is_js %}javascript{% else %}python{% endif %}">{{init_code_tmpl}}</pre>
