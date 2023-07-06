@@ -1,0 +1,149 @@
+<body data-author="freeman_lex">
+<div class="question-answer">
+    <div class="question">
+        <p>我不知道如何开始解决这个任务。</p>
+    </div>
+    <div class="answer">
+        <p>
+           一般的想法是将数字 "分解 "成不同的数字，然后选择其中最大的数字。 
+        </p>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>我应该从什么仪器开始？</p>
+    </div>
+    <div class="answer">
+        <p>
+            使用内置的<a target="_blank" href="https://www.w3schools.com/python/ref_func_str.asp">str()</a> 函数，将输入的数字转换成字符串。
+        </p>
+        <pre class="brush: python">
+a = 12
+a = str(a)
+print(a)
+        </pre>
+        <div class="output">
+            <p>输出：</p>
+            <pre>
+12        
+            </pre>
+        </div>
+        <p>
+            <b class="code">12</b> 看起来是一样的，但现在是字符串:-)
+        </p>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>完成了。但不知道如何继续。</p>
+    </div>
+    <div class="answer">
+        <p>
+            下一步是使用内置的<a target="_blank" href="https://www.w3schools.com/python/ref_func_map.asp">map()</a> 函数，它对序列中的每个元素都实现了特定的功能。在这种情况下，你需要将创建的字符串的每个字符转换为整数。
+        </p>
+        <pre class="brush: python">
+a = map(int, str(a))        
+        </pre>
+        <p>
+            其结果是map对象。如果你把它转换为列表，你会看到：
+        </p>
+        <pre class="brush: python">
+print(list(a))
+        </pre>
+        <div class="output">
+            <p>输出：</p>
+            <pre>
+[1, 2]        
+            </pre>
+        </div>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>如何选择列表中的最大元素？</p>
+    </div>
+    <div class="answer">
+        <p>
+            使用内置的<a target="_blank" href="https://www.w3schools.com/python/ref_func_max.asp">max()</a> 函数来寻找序列中的最大元素。这个函数可以接受map对象作为其参数。不需要转换为列表。
+        </p>
+        <pre class="brush: python">
+a = max(map(int, str(a)))
+print(a)
+        </pre>
+        <div class="output">
+            <p>输出：</p>
+            <pre>
+2
+            </pre>
+        </div>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>那么，我的最终解决方案应该是什么样子的呢？</p>
+    </div>
+    <div class="answer">
+        <p>
+            你只需要将代码包装成函数表达式，并返回<b class="code">max()</b> 函数的结果。
+        </p>
+        <p>以下是整个代码：</p>
+        <div class="spoiler">
+        <pre class="brush: python">
+def max_digit(a: int) -> int:
+
+    return max(map(int, str(a)))        
+        </pre>
+        </div>
+        <p>
+            这个解决方案很简单，也很短，所以你可以使用lambda表达式（匿名函数）来把这类函数写得更紧凑。
+        </p>
+        <div class="spoiler">
+        <pre class="brush: python">
+max_digit = lambda a: max(map(int, str(a)))        
+        </pre>
+        </div>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>告诉我更多的解决方案!<br />
+        因为我想成为一个真正的🥇 Python Ninnjaa!</p>
+    </div>
+    <div class="answer">
+        <p>当然，抓住它!</p>
+        <p>
+            这个解决方案使用的函数更少，但不太明显。当你实现<b class="code">max()</b> 到字符串时，没有特定的排序键，字符是以词汇顺序排序的，其中从 "0 "到 "9 "的字符与从0到9的数字排序方式相同。 
+        </p>
+        <div class="spoiler">
+        <pre class="brush: python">
+max_digit = lambda a: int(max(str(a)))
+        </pre>
+        </div>
+        <p>
+            如果你有任何疑问，这里有详细的分步解决方案。
+        </p>
+        <div class="spoiler">
+        <pre class="brush: python">
+def max_digit(a: int) -> int:
+
+    current_max = 0
+    for num in str(a):
+        num = int(num)
+        if num> current_max:
+            current_max = num
+
+    return current_max
+        </pre>
+        </div>
+        <p>点击任务菜单中的<b>Best Solutions</b> ，可以看到很多其他有趣的解决方案!</p>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>谢谢!我现在知道并理解了更多!一切工作都很顺利!</p>
+    </div>
+    <div class="answer">
+        👍很高兴听到这个消息!
+    </div>
+</div>
+</body>
