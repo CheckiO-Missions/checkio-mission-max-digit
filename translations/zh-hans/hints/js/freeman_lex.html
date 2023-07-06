@@ -1,0 +1,148 @@
+<body data-author="freeman_lex">
+<div class="question-answer">
+    <div class="question">
+        <p>我不知道如何开始解决这个任务。</p>
+    </div>
+    <div class="answer">
+        <p>
+            一般的想法是将数字 "分解 "成不同的数字，然后选择其中最大的数字。 
+        </p>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>好吧，我应该从什么开始？</p>
+    </div>
+    <div class="answer">
+        <p>
+            如果更具体一点，你应该把数字转换成字符串，把独立的字符组成一个数组，把每个字符再转换成数字，然后取最大的一个。
+        </p>
+        <p>
+            用<a target="_blank" href="https://www.w3schools.com/jsref/jsref_string.asp">String()</a> 方法将数字转换成字符串。
+        </p>
+        <pre class="brush: javascript">
+String(value)
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>
+            如何将这个字符串做成一个独立的字符数组？
+        </p>
+    </div>
+    <div class="answer">
+        <p>
+            使用<a target="_blank" href="https://www.w3schools.com/jsref/jsref_split.asp">string.split()</a> 方法，其中第一个参数是空字符串。
+        </p>
+        <pre class="brush: javascript">
+String(value).split("")
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>
+            如何将数组中的每个元素（字符串类型）转换回数字类型？
+        </p>
+    </div>
+    <div class="answer">
+        <p>
+            使用带有函数参数的<a target="_blank" href="https://www.w3schools.com/jsref/jsref_map.asp">array.map()</a> 方法，你需要为每个元素调用该方法。在这个例子中，它是<b class="code">Number</b> 方法。
+        </p>
+        <pre class="brush: javascript">
+String(value).split("").map(Number)
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>
+            好了，接下来该怎么做？
+        </p>
+    </div>
+    <div class="answer">
+        <p>
+            要找到这些数字中的最大值，你需要把它们作为<a target="_blank" href="https://www.w3schools.com/jsref/jsref_max.asp">Math.max()</a> 方法的参数，像这样。
+        </p>
+        <pre class="brush: javascript">
+Math.max(   String(value).split("").map(Number))
+        </pre>
+        <p>
+            但这里有一个技巧。这些数字现在被装在数组中。但是你需要用逗号分隔的数字作为参数来调用Math.max()方法。所以要用<a target="_blank" href="https://www.w3schools.com/react/react_es6_spread.asp">spread</a> 运算符来解包数组。
+        </p>
+        <pre class="brush: javascript">
+Math.max(...String(value).split("").map(Number));
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>那么，我的最终解决方案应该是什么样子的呢？</p>
+    </div>
+    <div class="answer">
+        <p>
+            你只需要将你的代码包装成函数表达式，并返回你所建立的表达式。
+        </p>
+        <p>下面是整个解决方案：</p>
+        <div class="spoiler">
+        <pre class="brush: javascript">
+function maxDigit(value: number): number {
+
+    return Math.max(...String(value).split("").map(Number));
+    }
+        </pre>
+        </div>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>告诉我更多的解决方案!<br />
+        因为我想成为一个真正的🥇 Javascript英雄!</p>
+    </div>
+    <div class="answer">
+        <p>当然，抓住它!</p>
+        <p>
+            这个解决方案比较短。正如你所看到的，它对字符（类型<b class="code">string</b> ）进行排序，而不是数字。作为字符串的一位数的词法顺序（"0"... "9"）与作为数字的数学顺序（0...9）是一样的。
+        </p>
+        <p>
+            请注意，在第一个变体中，返回的是<b class="code">string</b> 类型的结果。这是因为Javascript认为，<b class="code">5 == "5"</b> ，例如。在第二个变体中，你用<b class="code">+</b> 将字符串转换成数字。
+        </p>
+        <div class="spoiler">
+        <pre class="brush: javascript">
+function maxDigit(value: number): number {
+
+    return Math.max(...value.toString());
+    // or
+    return +Math.max(...value.toString());
+}
+        </pre>
+        </div>
+        <p>
+            这里是不转换为字符串的逐步解决方案。你可以通过用数字除以10并取其余数来得到分离的数字。
+        </p>
+        <div class="spoiler">
+        <pre class="brush: javascript">
+function maxDigit(value: number): number {
+
+    let res = 0;
+    while (value>= 1) {
+        res = Math.max(res, value%10);
+        value = Math.floor(value/10);
+    }
+    return res;
+}
+        </pre>
+        </div>
+        <p>点击任务菜单中的<b>Best Solutions</b> ，可以看到很多其他有趣的解决方案!</p>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>谢谢!我现在知道并理解了更多!一切工作都很顺利!</p>
+    </div>
+    <div class="answer">
+        👍很高兴听到这个消息!
+    </div>
+</div>
+</body>
