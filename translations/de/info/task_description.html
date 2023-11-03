@@ -1,0 +1,24 @@
+<!-- Describe task in general -->
+<img src="{{MEDIA_CONVERT}}title.png" class="title_img" />
+<p>
+    Sie haben eine Zahl und müssen bestimmen, welche Ziffer in dieser Zahl die größte ist.
+</p>
+
+<!-- Explain input and output values -->
+<p>
+   <strong>Eingabe:</strong> Eine positive ganze Zahl <span>{% if is_js %}(number){% else %}(int){% endif %}</span>.
+</p>
+
+<p>
+   <strong>Ausgabe:</strong> Eine ganze Zahl 0-9 <span>{% if is_js %}(number){% else %}(int){% endif %}</span>. 
+</p>
+
+
+<!-- Give some usage examples -->
+<div class="for_info_only">
+    <p>
+        <strong>Beispiele:</strong>
+    </p>
+
+<pre class="brush: {% if is_js %}javascript{% else %}python{% endif %}">{{init_code_tmpl}}</pre>
+</div>
